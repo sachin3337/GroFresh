@@ -26,6 +26,3 @@ class FoodItemPurchase(models.Model):
     year_bought = models.IntegerField(default=timezone.now().year)  # Stores the year of purchase, default is current year
     amount_wasted = models.PositiveIntegerField(default=0, null=True, blank=True)  # Amount wasted, filled at the end of the month
 
-    def __str__(self):
-        month_name = dict(self.MONTH_CHOICES).get(self.month_bought, "Unknown Month")
-        return f"{self.quantity_bought} of {self.food_item.name} bought in {month_name} {self.year_bought}"
